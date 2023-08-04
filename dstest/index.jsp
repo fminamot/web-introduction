@@ -12,19 +12,16 @@
 <h1>Datasource sample</h1>
 <%
    Connection conn;
-   Statement stat;
-   ResultSet rs;
 
    DataSource itemsDS = (DataSource) new InitialContext().lookup("java:jboss/datasources/items");
-
    conn = itemsDS.getConnection(); 
    try {
-     stat = conn.createStatement();
-     rs = stat.executeQuery("SELECT * FROM Projects" );
+     Statement statement = conn.createStatement();
+     ResultSet rs = statement.executeQuery("SELECT * FROM Projects" );
      while( rs.next() ) {
 
 %>
-<h2><%=rs.getInt(1)%> <%=rs.getString(2)%> <%=rs.getString(3)%></h2>
+<h2>Record=(<%=rs.getInt(1)%>,<%=rs.getString(2)%>,<%=rs.getString(3)%>)</h2>
 <%
      }
    }
