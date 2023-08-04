@@ -7,13 +7,15 @@ import java.sql.Statement;
 public class JDBCTest {
 
      public static void main(String[] args) {
-          Connection conn;
+	  System.out.println("JDBC test");
+
+          Connection connection;
 
           try {
-               conn = DriverManager.getConnection(
+               connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost/items?user=user1&password=mypa55");
                try {
-                    Statement statement = conn.createStatement();
+                    Statement statement = connection.createStatement();
                     ResultSet rs = statement.executeQuery("SELECT * FROM Projects" );
 
                     while( rs.next() ) {
@@ -23,7 +25,7 @@ public class JDBCTest {
                     }
                }
                finally {
-                    conn.close();
+                    connection.close();
                }
 
           } catch (SQLException ex) {
