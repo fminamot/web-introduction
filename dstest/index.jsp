@@ -1,18 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page import="java.sql.*" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JSPSample</title>
+<title>Datasource Sample</title>
 </head>
 <body>
+<h1>Datasource sample</h1>
 <%
-    for(int i = 0; i < 5; i++){
+ Connection conn;
+ Statement stat;
+ ResultSet rs;
+
+ try {
+   conn = DriverManager.getConnection(
+         "jdbc:mysql://localhost/items?user=user1&password=mypa55");
+   try {
+     stat = conn.createStatement();
+     rs = stat.executeQuery("SELECT * FROM Projects" );
+     while( rs.next() ) {
+
 %>
-<p>JSP Sample</p>
+<h2><%=rs.getInt(1)%> <%=rs.getString(2)% <%=rs.getString(3)%></h2>
 <%
-    }
+   finally {
+     conn.close();
+   }
 %>
 </body>
 </html>
