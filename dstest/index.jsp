@@ -16,7 +16,7 @@
    DataSource itemsDS = (DataSource) new InitialContext().lookup("java:jboss/datasources/items");
    connection = itemsDS.getConnection(); 
    try {
-     Statement statement = conn.createStatement();
+     Statement statement = connection.createStatement();
      ResultSet rs = statement.executeQuery("SELECT * FROM Projects" );
      while( rs.next() ) {
 
