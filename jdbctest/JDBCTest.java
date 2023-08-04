@@ -10,6 +10,8 @@ public class JDBCTest {
           Connection conn;
 
           try {
+	       System.out.println("JDBC test");
+
                conn = DriverManager.getConnection(
                     "jdbc:mysql://localhost/items?user=user1&password=mypa55");
                try {
