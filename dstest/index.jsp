@@ -26,7 +26,7 @@
      }
    }
    finally {
-     conn.close();
+     connection.close();
    }
 %>
 </body>
