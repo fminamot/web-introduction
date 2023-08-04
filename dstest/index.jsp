@@ -11,10 +11,10 @@
 <body>
 <h1>Datasource sample</h1>
 <%
-   Connection conn;
+   Connection connection;
 
    DataSource itemsDS = (DataSource) new InitialContext().lookup("java:jboss/datasources/items");
-   conn = itemsDS.getConnection(); 
+   connection = itemsDS.getConnection(); 
    try {
      Statement statement = conn.createStatement();
      ResultSet rs = statement.executeQuery("SELECT * FROM Projects" );
