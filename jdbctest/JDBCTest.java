@@ -32,5 +32,5 @@ public class JDBCTest {
                System.out.println(ex);
           }
      }
-   }
+}
 
