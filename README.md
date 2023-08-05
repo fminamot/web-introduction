@@ -11,5 +11,5 @@ java MySQLTest
 ## Datasource test
 ```
 cd dstest
-jar cvf dstest.war -C dstest .
+jar cvf ../dstest.war .
 ```
